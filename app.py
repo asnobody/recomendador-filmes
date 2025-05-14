@@ -1,5 +1,7 @@
 import streamlit as st
 from recomendador import recomendar_filmes_similares, movies, buscar_poster
+st.set_page_config(page_title="Recomendador de Filmes", layout="centered")
+st.title("🎬 Recomendador de Filmes (semelhantes)")
 
 # --- Autenticação simples ---
 USUARIOS = {"admin": "1234", "user": "filmes"}
@@ -13,8 +15,8 @@ if usuario not in USUARIOS or USUARIOS[usuario] != senha:
     st.stop()
 
 # --- App principal ---
-st.set_page_config(page_title="Recomendador de Filmes", layout="centered")
-st.title("🎬 Recomendador de Filmes (semelhantes)")
+#st.set_page_config(page_title="Recomendador de Filmes", layout="centered")
+#st.title("🎬 Recomendador de Filmes (semelhantes)")
 
 filmes_disponiveis = movies["title"].sort_values().tolist()
 filme_escolhido = st.selectbox("Escolha um filme:", filmes_disponiveis)
